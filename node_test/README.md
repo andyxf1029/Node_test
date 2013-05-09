@@ -15,7 +15,6 @@
  - 模块化
  - 异步编程
 
-
 ### 事件驱动
 Node.js中大部分的模块，都继承自Event模块
 > var options = {  
@@ -38,6 +37,22 @@ req.on('error', function (e) {
 // write data to request body
 req.write('data\n');  
 req.end();  
+
+
+###模块化
+> var PI = Math.PI;  
+exports.area = function (r) {  
+    return PI * r * r;  
+};  
+exports.circumference = function (r) {  
+    return 2 * PI * r;  
+};    
+将这个文件存为circle.js，并新建一个app.js文件
+
+> var circle = require('./circle.js');  
+console.log( 'The area of a circle of radius 4 is ' + circle.area(4));  
+
+
  
 ###I/O异步
 ![](http://www.infoq.com/resource/articles/nodejs-asynchronous-io/zh/resources/async.png)
@@ -59,3 +74,4 @@ req.end();
 
  - https://github.com/joyent/node/wiki/modules  模块List
  - http://www.nodecloud.org/
+ - http://nodejs.org/api/
